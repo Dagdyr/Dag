@@ -1,0 +1,27 @@
+<script>
+  let container = document.getElementById("container");
+  let formData = new FormData();
+  fetch('/updateArticle', {
+      method: "GET",
+  }).then(response=>response.json()) // function(response){return response.json()}
+      .then(row=>{
+          console.log(row)
+          container.innerHTML += `
+    <h1 class="text-center">Редактировать статью</h1>
+    <div class="col-5 mx-auto">
+      <form action="/updateArticle1" method="post">
+        <div class="mb-3">
+          <input type="text" class="form-control" name="title" placeholder="Заголовок">
+        </div>
+        <div class="mb-3">
+          <textarea name="content" class="form-control" placeholder="Контент">s</textarea>
+        </div>
+        <div class="mb-3">
+          <input type="text" class="form-control" name="author" placeholder="author" value="ssss">
+        </div>
+        <div class="mb-3">
+          <input type="submit" class="btn btn-primary form-control" value="сохранить">
+        </div>
+      </form>
+    </div>`})
+</script>
