@@ -10,10 +10,10 @@ if ($path[1] == "login" && $method == "GET"){
     $content =  file_get_contents("view/login.html");
 }elseif ($path[1] == "reg" && $method == "GET"){
     $content =  file_get_contents("view/reg.html");
-}elseif ($path[1] == "profile" && $method == "GET"){
-    $content =  file_get_contents("view/profile.html");
-}elseif ($path[1] == "profile" && $method == 'POST'){
-    exit(UserController::Profile());
+}elseif ($path[1] == 'getAuthUserData'){
+    exit(UserController::getAuthUserData());
+}elseif ($path[1] == 'profile' && $method == "GET"){
+    $content = file_get_contents('view/profile.html');
 }elseif ($path[1] == "articles"){
     $content =  file_get_contents("view/articles.html");
 }elseif ($path[1] == "article" && $method == "GET"){
@@ -34,11 +34,11 @@ if ($path[1] == "login" && $method == "GET"){
 }elseif ($path[1] == "deleteArticle"){
     ArticleControler::deleteArticle();
 }elseif ($path[1] == "login" && $method == 'POST'){
-    UserController::login();
+    exit(UserController::login());
 }elseif ($path[1] == "reg" && $method == 'POST'){
-    UserController::reg();
+    exit(UserController::reg());
 }elseif ($path[1] == "avatar"){
-    UserController::Avatar();
+    UserController::avatar();
 }elseif ($path[1] == "getCommentByArticleId"){
     ArticleControler::getCommentByArticleId($_POST['article_id']);
 }elseif ($path[1] == "addComment"){
